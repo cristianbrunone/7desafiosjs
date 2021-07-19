@@ -3,9 +3,19 @@ document.body.addEventListener('keyup', (event) => {
     // playSound(event.code.toLocaleLowerCase());
     //vindo tudo minusculo atraves da conversao
     playSound(event.code.toLocaleLowerCase());
+});
 
+document.querySelector('.composer button').addEventListener('click', () => {
+    let song = document.querySelector('#input').value;
+    // console.log("Música", song); vendo se ele captura certo o que foi digitado
+    if (song !== '') {
+        let songArray = song.split(''); // isso vai fazer com que ele gere um array com cada item do elemento 
+        // console.log(songArray); verificando o array que eh criado
+        playComposition(songArray);
+    }
 
 });
+
 
 function playSound(sound) {
 
@@ -24,5 +34,17 @@ function playSound(sound) {
         setTimeout(() => {
             keyElement.classList.remove('active');
         }, 300);
+    }
+}
+// aqui fica a logica da parte de composição da música
+function playComposition(songArray) {
+    let wait = 0;
+    for (let songItem of songArray) {
+        setTimeout(() => {
+            playSound(`key${songItem}`);
+        }, wait);
+
+        wait += 250;
+
     }
 }
