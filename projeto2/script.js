@@ -23,6 +23,26 @@ function updateClock() {
 
     digitalElement.innerHTML = `${fixZero(hour)}:${fixZero(minute)}:${fixZero(second)}`;
 
+
+    //iniciando  projeto relógio analógico
+    //iniciaremos rotacionando os ponteiros e entendendo a lógica aplicada na rotação
+    //nessa lógica é para saber como encontrar cada segundo que se passa dentro do relogio analógico
+    //o 90 graus adicionado a formula foi para alinhar o ponteiro de segundo pois ele estava -90 graus e estava dando variação
+    let sDeg = ((360 / 60) * second) - 90;
+    //criando agora o ponteiro de minutos da mesma forma
+    let mDeg = ((360 / 60) * minute) - 90;
+    //criando agora o ponteiro das horas da mesma forma, apenas mudando os segundos para horas
+    let hDeg = ((360 / 12) * hour) - 90;
+    //aqui é aplicada a lógica via js para aparecer o relogio funcionando
+    sElement.style.transform = `rotate(${sDeg}deg)`;
+    //aqui fica a logica aplicada para transformar a rotação do ponteiro dos minutos
+    mElement.style.transform = `rotate(${mDeg}deg)`;
+    //aqui fica a logica aplicada no ponteiro de horas
+    hElement.style.transform = `rotate(${hDeg}deg`;
+
+
+
+
 }
 
 //adicionando um zero antes do valor menor do que 10 para corrigir a hora.
@@ -41,3 +61,5 @@ function fixZero(time) {
 }
 //aqui ele vai executar de 1 em 1 segundo.
 setInterval(updateClock, 1000);
+//fazendo a função ser rodada na sequencia, evita o delay de 1 segundo de espera
+updateClock();
