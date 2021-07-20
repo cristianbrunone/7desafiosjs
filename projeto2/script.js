@@ -27,14 +27,17 @@ function updateClock() {
 
 //adicionando um zero antes do valor menor do que 10 para corrigir a hora.
 //se o time for menor que 10, ele retornara um zero junto com o time, se não retornará apenas o time
-
+//refatorando o código para melhorar ainda mais o espaço: segue exemplo melhor
+// function fixZero(time) {
+//     if (time < 10) {
+//         return '0' + time;
+//     } else {
+//         return time;
+//     }
+// }
+//refatorando a função fica assim com a mesma lógica aplicada
 function fixZero(time) {
-    if (time < 10) {
-        return '0' + time;
-    } else {
-        return time;
-    }
+    return time < 10 ? `0${time}` : time;
 }
-
 //aqui ele vai executar de 1 em 1 segundo.
 setInterval(updateClock, 1000);
