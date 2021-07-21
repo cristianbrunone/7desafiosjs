@@ -37,7 +37,7 @@ document.querySelector('.busca').addEventListener('submit', async(event) => {
             //aqui se não for válido então ele irá mostrar uma mensagem de erro
         }
     } else {
-        clearInfo();
+        clearInfo(); //aqui limpamos o projeto também caso alguem busque por algo que não faça o menor sentido
     }
 
 });
