@@ -109,22 +109,51 @@ function togglePlayer() {
 }
 
 function checkGame() {
-   if(checkWinnerFor('x')) {
-       warning = 'O "x" venceu';
-       playing = false;
-   }else if(checkWinnerFor('o')) {
+    if (checkWinnerFor('x')) {
+        warning = 'O "x" venceu';
+        playing = false;
+    } else if (checkWinnerFor('o')) {
         warning = 'O "o" venceu';
         playing = false;
-   }else if(ifFull()) {
+    } else if (ifFull()) {
         warning = 'Deu empate';
         playing = false;
-   }
+    }
 }
 
 function checkWinnerFor(player) {
+    let pos = [
+        //aqui eh a posição do tabuleiro inicial que pode ter chance de ser vencedor
+        'a1,a2,a3',
+        'b1,b2,b3',
+        'c1,c2,c3',
+        //aqui eh o mesmo que a linha abaixo
+        'a1,b1,c1',
+        'a2,b2,c2',
+        'a3,b3,c3',
+        //aqui eh a possibilidade de ganhar na diagonal
+        'a1,b2,c3',
+        'a3,b2,c1'
+    ];
 
+
+    //aplicando a logica de cada posição deve ser verificado se existe o player no tabuleiro
+    for (let w in pos) {
+        let pArray = pos[w].split(','); //a1 , a2. a3
+        let hasWon = pArray.every(option => square[option] === player);
+        if (hasWon) {
+            return true;
+        }
+
+    }
+    return false;
 }
-
+//verificando o empate
 function isFull() {
-
+    for (let i in square) {
+        if (square[i] === '') {
+            return false;
+        }
+    }
+    return true;
 }
