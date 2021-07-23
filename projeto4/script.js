@@ -6,11 +6,11 @@ let square = {
     a1: '',
     a2: '',
     a3: '',
-    b1: 'x',
+    b1: '',
     b2: '',
     b3: '',
     c1: '',
-    c2: 'o',
+    c2: '',
     c3: ''
 };
 //vez de quem começará se vai zer X ou 0 , ficará em branco para escolher na hora da jogada
@@ -47,7 +47,7 @@ function itemClick(event) {
     // console.log(event.target);
     let item = event.target.getAttribute('data-item');
     // console.log("Clicou em ", item);
-    if (square[item] == '') {
+    if (playing && square[item] === '') {
         square[item] = player;
         renderSquare();
         togglePlayer();
@@ -62,7 +62,7 @@ function reset() {
     // gerei um numero aleatório e não será 0 e nem 1
     let random = Math.floor(Math.random() * 2);
     //pode-se fazer assim também
-    player = (random === 0) ? 'X' : 'O';
+    player = (random === 0) ? 'x' : 'o';
 
     //se o numero aleatório for 0 então o player começa
     // if (random === 0) {
@@ -97,14 +97,14 @@ function renderInfo() {
 
 function togglePlayer() {
     //vamos mudar o player para o oposto
-    if (player == 'X') {
-        player = 'O';
-    } else {
-        player = 'X';
-    }
+    // if (player == 'X') {
+    //     player = 'O';
+    // } else {
+    //     player = 'X';
+    // }
 
     //pode ser simplificado como abaixo
-    // player = (player == 'X') ? 'O' : 'X';
+    player = (player === 'x') ? 'o' : 'x';
     renderInfo();
 }
 
@@ -115,7 +115,7 @@ function checkGame() {
     } else if (checkWinnerFor('o')) {
         warning = 'O "o" venceu';
         playing = false;
-    } else if (ifFull()) {
+    } else if (isFull()) {
         warning = 'Deu empate';
         playing = false;
     }
