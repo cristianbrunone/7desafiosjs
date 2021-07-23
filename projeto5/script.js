@@ -23,6 +23,7 @@ e quando o click do mouse levantar, desative o modo desenho
 screen.addEventListener('mousedown', mouseDownEvent);
 screen.addEventListener('mousemove', mouseMoveEvent);
 screen.addEventListener('mouseup', mouseUpEvent);
+document.querySelector('.clear').addEventListener('click', clearScreen);
 
 
 
@@ -81,4 +82,11 @@ function draw(x, y) {
     //desenhar
     mouseX = pointX;
     mouseY = pointY;
+}
+
+
+
+function clearScreen() {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, screen.width, screen.height);
 }
