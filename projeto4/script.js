@@ -109,54 +109,22 @@ function togglePlayer() {
 }
 
 function checkGame() {
-    //vamos verificar se há algum empate
-    let empate = true;
-    for (let i in square) {
-        if (square[i] == '') {
-            empate = false;
-            break;
-        }
-    }
-    if (empate) {
-        //empate
-        warning = 'Empate';
+   if(checkWinnerFor('x')) {
+       warning = 'O "x" venceu';
+       playing = false;
+   }else if(checkWinnerFor('o')) {
+        warning = 'O "o" venceu';
         playing = false;
-    } else {
-        //verificando se há algum vencedor
-        let winner = '';
-        let row = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3'];
-        let column = ['a1', 'b1', 'c1', 'a2', 'b2', 'c2', 'a3', 'b3', 'c3'];
-        let diagonal = ['a1', 'b2', 'c3', 'a3', 'b2', 'c1', 'a2', 'b1', 'c3'];
-        for (let i in row) {
-            if (square[row[i]] == player) {
-                winner = player;
-                break;
-            }
-        }
-        if (winner == '') {
-            for (let i in column) {
-                if (square[column[i]] == player) {
-                    winner = player;
-                    break;
-                }
-            }
-        }
-        if (winner == '') {
-            for (let i in diagonal) {
-                if (square[diagonal[i]] == player) {
-                    winner = player;
-                    break;
-                }
-            }
-        }
-        if (winner == '') {
-            //empate
-            warning = 'Empate';
-            playing = false;
-        } else {
-            //vencedor
-            warning = winner + ' ganhou';
-            playing = false;
-        }
-    }
+   }else if(ifFull()) {
+        warning = 'Deu empate';
+        playing = false;
+   }
+}
+
+function checkWinnerFor(player) {
+
+}
+
+function isFull() {
+
 }
