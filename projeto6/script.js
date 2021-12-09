@@ -38,6 +38,7 @@ function showQuestion() { //
        });
     }else {
         //acabaram as questões
+        finishQuiz();
     }
 
 }
@@ -50,4 +51,8 @@ function optionClickEvent(event) {
     }
     currentQuestion++;
     showQuestion();
+}
+
+function finishQuiz() {
+    
 }
