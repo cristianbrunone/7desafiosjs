@@ -13,6 +13,13 @@ function showQuestion() { //
     if(questions[currentQuestion]) {
         let q = questions[currentQuestion]; 
 
+    //porcentagem da barra de progresso
+    let pct = Math.floor((currentQuestion / questions.length) * 100);
+
+    //mudando a porcentagem da barra 
+    document.querySelector('.progress--bar').style.width = `${pct}%`;
+
+
         //console.log(q.question);
         document.querySelector('.scoreArea').style.display = 'none';
         document.querySelector('.questionArea').style.display = 'block';
