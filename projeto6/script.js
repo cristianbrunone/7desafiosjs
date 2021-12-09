@@ -2,6 +2,10 @@
 //Dados iniciais
 let currentQuestion = 0;
 
+//aqui vou criar uma variavel para saber quantas respostas eu acertei ao terminar o quiz
+
+let correctAnswers = 0;
+
 showQuestion();
 
 //Funções
@@ -29,4 +33,14 @@ function showQuestion() { //
         //acabaram as questões
     }
 
+}
+
+function optionClickEvent(event) {
+    // console.log("Clicou em ", event.target.getAttribute('data-op'));
+    let clickedOption = parseInt(event.target.getAttribute('data-op'));
+    if(questions[currentQuestion].answer === clickedOption) {
+        correctAnswers++;
+    }else {
+        console.log("Errou!");
+    }
 }
