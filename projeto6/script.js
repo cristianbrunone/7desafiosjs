@@ -40,7 +40,7 @@ function optionClickEvent(event) {
     let clickedOption = parseInt(event.target.getAttribute('data-op'));
     if(questions[currentQuestion].answer === clickedOption) {
         correctAnswers++;
-    }else {
-        console.log("Errou!");
     }
+    currentQuestion++;
+    showQuestion();
 }
