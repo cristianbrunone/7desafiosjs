@@ -8,6 +8,9 @@ let correctAnswers = 0;
 
 showQuestion();
 
+//Eventos
+document.querySelector('.scoreArea button').addEventListener('click', resetEvent);
+
 //Funções
 function showQuestion() { //
     if(questions[currentQuestion]) {
@@ -63,7 +66,7 @@ function finishQuiz() {
         document.querySelector('.scoreText1').innerHTML = 'Muito bom, mas pode melhorar!';
         document.querySelector('.scorePct').style.color = '#FFFF00';
     }else if(points >= 70) {
-        document.querySelector('.scoreText1').innerHTML = 'PARABÉÉÉNS!';
+        document.querySelector('.scoreText1').innerHTML = 'PARABÉÉÉNS VOCÊ É FOODA!';
         document.querySelector('.scorePct').style.color = '#0D630D';
     }
 
@@ -75,4 +78,10 @@ function finishQuiz() {
     document.querySelector('.scoreArea').style.display = 'block';
     document.querySelector('.questionArea').style.display = 'none';
     document.querySelector('.progress--bar').style.width = '100%';
+}
+
+function resetEvent() {
+    correctAnswers = 0;
+    currentQuestion = 0;
+    showQuestion();
 }
