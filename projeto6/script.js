@@ -56,6 +56,18 @@ function optionClickEvent(event) {
 function finishQuiz() {
     let points = Math.floor((correctAnswers / questions.length) * 100);
 
+    if(points < 30) {
+        document.querySelector('.scoreText1').innerHTML = 'Tá ruim em ?!';
+        document.querySelector('.scorePct').style.color = '#FF0000';
+    }else if(points >= 30 && points < 70) {
+        document.querySelector('.scoreText1').innerHTML = 'Muito bom, mas pode melhorar!';
+        document.querySelector('.scorePct').style.color = '#FFFF00';
+    }else if(points >= 70) {
+        document.querySelector('.scoreText1').innerHTML = 'PARABÉÉÉNS!';
+        document.querySelector('.scorePct').style.color = '#0D630D';
+    }
+
+
     document.querySelector('.scorePct').innerHTML = `Acertou ${points}%`;
 
     document.querySelector('.scoreText2').innerHTML = `Você respondeu ${questions.length} questões e acertou ${correctAnswers}.`;
