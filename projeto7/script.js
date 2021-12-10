@@ -38,3 +38,16 @@ function dragEnd(event) {
 
 //Funções da Area
 
+function dragOver(event) {
+// console.log('PASSOU POR CIMA');
+event.preventDefault();
+}
+
+function dragLeave(event) {
+    // console.log('SAIU DE UMA AREA DROPAVEL');
+}
+
+function drop(event) {
+//o drop so funciona se eu libero 
+console.log("LIBEROU");
+}
