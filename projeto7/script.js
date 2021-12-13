@@ -60,6 +60,6 @@ let dragItem = document.querySelector('.item.dragging');
 // console.log(event.currentTarget);
 //agora para saber se ja tem algum item dentro da area que estou passando por cima 
 if(event.currentTarget.querySelector('.item') === null){
-    
+    event.currentTarget.appendChild(dragItem);
 }
 }
