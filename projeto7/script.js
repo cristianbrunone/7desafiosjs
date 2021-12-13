@@ -41,10 +41,12 @@ function dragEnd(event) {
 function dragOver(event) {
 // console.log('PASSOU POR CIMA');
 event.preventDefault();
+event.currentTarget.classList.add('hover');
 }
 
 function dragLeave(event) {
     // console.log('SAIU DE UMA AREA DROPAVEL');
+    event.currentTarget.classList.remove('hover');
 }
 
 function drop(event) {
