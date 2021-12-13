@@ -20,6 +20,10 @@ Desafio Javascript B7web, 7 desafios com javascript
 - __[QUIZ](https://github.com/uchoamaster/7desafiosjs/tree/main/projeto6)__ - Protótipo QUIZ feito com HTML CSS E JS.
 ![quiz2](https://user-images.githubusercontent.com/5197047/145615520-2071f611-f3e1-45b6-9ad3-1d0e77a787cf.png)
 
+- __[Projeto-arrasta-e-solta](https://github.com/uchoamaster/7desafiosjs/tree/main/projeto7)__ - Projeto Arrasta e Solta com JS
+
+![projeto-arrasta-e-solta](https://user-images.githubusercontent.com/5197047/145829589-6dbf1d6a-c0ca-49e4-8834-d839a7ae3f11.png)
+
 Vocês irão curtir os Projetos!
 
 
