@@ -39,9 +39,13 @@ function dragEnd(event) {
 //Funções da Area
 
 function dragOver(event) {
+    //dessa forma eu só adiciona estes elementos quando nao tiver nenhuma area selecionada, ai eles irão aparecer
+if(event.currentTarget.querySelector('.item') === null){
 // console.log('PASSOU POR CIMA');
 event.preventDefault();
 event.currentTarget.classList.add('hover');
+}    
+
 }
 
 function dragLeave(event) {
@@ -53,13 +57,14 @@ function drop(event) {
 //o drop so funciona se eu libero 
 // console.log("LIBEROU");
 event.currentTarget.classList.remove('hover');
-//pegando o item e jogando dentro do quadrado
-let dragItem = document.querySelector('.item.dragging');
 // console.log(dragItem); verificando se eh o item realmente
 //descobrindo a area
 // console.log(event.currentTarget);
 //agora para saber se ja tem algum item dentro da area que estou passando por cima 
+//aqui fica a logica de arrastar e soltar dentro de uma area, se essa area ja tiver um item ela nao será aceita para dropar item selecionado
 if(event.currentTarget.querySelector('.item') === null){
+    //pegando o item e jogando dentro do quadrado
+    let dragItem = document.querySelector('.item.dragging');
     event.currentTarget.appendChild(dragItem);
 }
 }
