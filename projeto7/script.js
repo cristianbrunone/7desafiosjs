@@ -76,15 +76,20 @@ if(event.currentTarget.querySelector('.item') === null){
 //funcções da area Neutral
 //acima eu capturei as areas neutras e adicionei funções a ela aqui irei criar as funções adicionadas anteriormente
 
-function dragOverNeutral(){
-
+function dragOverNeutral(event){
+event.preventDefault();
+event.currentTarget.classList.add('hover');
 }
 
-function dragLeaveNeutral(){
-
+function dragLeaveNeutral(event){
+event.currentTarget.classList.remove('hover');
 }
 
-function dropNeutral(){
-
+function dropNeutral(event){
+event.currentTarget.classList.remove('hover');
+//aqui ele vai pegar o item selecionado 
+let dragItem = document.querySelector('.item.dragging');
+//e aqui eu tiro de onde tiver e coloco na minha area neutra
+event.currentTarget.appendChild(dragItem);
 }
 
