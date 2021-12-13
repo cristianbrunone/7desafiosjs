@@ -51,5 +51,15 @@ function dragLeave(event) {
 
 function drop(event) {
 //o drop so funciona se eu libero 
-console.log("LIBEROU");
+// console.log("LIBEROU");
+event.currentTarget.classList.remove('hover');
+//pegando o item e jogando dentro do quadrado
+let dragItem = document.querySelector('.item.dragging');
+// console.log(dragItem); verificando se eh o item realmente
+//descobrindo a area
+// console.log(event.currentTarget);
+//agora para saber se ja tem algum item dentro da area que estou passando por cima 
+if(event.currentTarget.querySelector('.item') === null){
+    
+}
 }
