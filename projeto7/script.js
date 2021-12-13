@@ -23,6 +23,10 @@ document.querySelectorAll('.area').forEach(area => {
     area.addEventListener('dragleave', dragLeave);
     area.addEventListener('drop', drop);
 });
+//irei transformar a area neutra em area dropavel, aqui eu apenas capturo a area e adiciono um evento para transformar a mesma em area neutra, lá abaixo irei criar as funções que adicionei
+document.querySelector('.neutralArea').addEventListener('dragover', dragOverNeutral);
+document.querySelector('.neutralArea').addEventListener('dragleave', dragLeaveNeutral);
+document.querySelector('.neutralArea').addEventListener('drop', dropNeutral);
 
 
 //Funções dos Itens
@@ -44,7 +48,7 @@ if(event.currentTarget.querySelector('.item') === null){
 // console.log('PASSOU POR CIMA');
 event.preventDefault();
 event.currentTarget.classList.add('hover');
-}    
+    }    
 
 }
 
@@ -66,5 +70,21 @@ if(event.currentTarget.querySelector('.item') === null){
     //pegando o item e jogando dentro do quadrado
     let dragItem = document.querySelector('.item.dragging');
     event.currentTarget.appendChild(dragItem);
+    }
 }
+
+//funcções da area Neutral
+//acima eu capturei as areas neutras e adicionei funções a ela aqui irei criar as funções adicionadas anteriormente
+
+function dragOverNeutral(){
+
 }
+
+function dragLeaveNeutral(){
+
+}
+
+function dropNeutral(){
+
+}
+
